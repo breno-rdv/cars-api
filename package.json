@@ -1,0 +1,23 @@
+{
+  "name": "cars-api",
+  "version": "1.0.0",
+  "description": "API to manage cars",
+  "main": "index.ts",
+  "scripts": {
+    "start:dev": "node main/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cars",
+    "api"
+  ],
+  "author": "Breno Ribeiro do Val",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.3",
+    "typescript": "^5.7.2"
+  }
+}
