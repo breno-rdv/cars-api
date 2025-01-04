@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "API to manage cars",
   "main": "index.ts",
+  "type": "module",
   "scripts": {
-    "start:dev": "node main/index.ts",
+    "start:dev": "tsc --noEmit && node --no-warnings=ExperimentalWarning --loader ts-node/esm src/main/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -17,7 +18,9 @@
     "express": "^4.21.2"
   },
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "@types/node": "^22.10.3",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
 }
