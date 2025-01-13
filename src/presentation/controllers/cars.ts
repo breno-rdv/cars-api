@@ -1,22 +1,9 @@
-type Request = object;
+import BaseController from "../protocols/base-controller";
+import { Request, Response } from "../protocols/http";
 
-type Response = {
-  statusCode: number;
-  body: object | Error;
-};
-
-export class CarsController {
+export class CarsController implements BaseController {
   handle(request: Request): Response {
-    if (!request) {
-      return {
-        statusCode: 400,
-        body: new Error("error"),
-      };
-    }
-
-    return {
-      statusCode: 200,
-      body: {},
-    };
+    if (!request) throw new Error("Request required");
+    throw new Error("Method not implemented.");
   }
 }
