@@ -57,6 +57,8 @@ export class Car {
 
   private location: Location;
 
+  private pictures: Array<string>;
+
   constructor(
     id: string,
     model: string,
@@ -73,7 +75,8 @@ export class Car {
     price: number,
     createdAt: string,
     updatedAt: string,
-    location: Location
+    location: Location,
+    pictures: Array<string>
   ) {
     this.id = id;
     this.model = model;
@@ -91,6 +94,7 @@ export class Car {
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
     this.location = location;
+    this.pictures = pictures;
   }
 
   getId(): string {
@@ -157,6 +161,10 @@ export class Car {
     return this.location;
   }
 
+  getPictures(): Array<string> {
+    return this.pictures;
+  }
+
   setId(id: string): void {
     this.id = id;
   }
@@ -219,5 +227,9 @@ export class Car {
 
   setLocation(location: Location): void {
     this.location = location;
+  }
+
+  setPictures(pictures: Array<string>) {
+    this.pictures = pictures;
   }
 }
