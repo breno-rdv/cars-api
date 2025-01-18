@@ -38,5 +38,5 @@ interface AddCarModel {
 }
 
 export interface AddCar {
-  invoke(car: AddCarModel): Car;
+  invoke(car: AddCarModel): Promise<Car>;
 }

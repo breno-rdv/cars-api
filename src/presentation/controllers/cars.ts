@@ -9,7 +9,7 @@ export class CarsController implements BaseController {
     this.addCar = addCar;
   }
 
-  handle(request: Request): Response {
+  async handle(request: Request): Promise<Response> {
     if (!request) throw new Error("Request required");
     throw new Error("Method not implemented.");
   }
