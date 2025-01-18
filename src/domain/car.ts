@@ -1,28 +1,4 @@
-enum Transmission {
-  MANUAL,
-  AUTOMATIC,
-}
-
-enum FuelType {
-  HIBRID,
-  FLEX,
-  GAS,
-  ETHANOL,
-}
-
-enum CarType {
-  CARS,
-  VANS,
-  MOTORCYCLE,
-}
-
-interface Location {
-  address: string;
-  number: number;
-  city: string;
-  state: string;
-  zipcode: number;
-}
+import { CarType, FuelType, Transmission, Location, Status } from "./types";
 
 export class Car {
   private id: string;
@@ -59,6 +35,8 @@ export class Car {
 
   private pictures: Array<string>;
 
+  private status: Status;
+
   constructor(
     id: string,
     model: string,
@@ -76,7 +54,8 @@ export class Car {
     createdAt: string,
     updatedAt: string,
     location: Location,
-    pictures: Array<string>
+    pictures: Array<string>,
+    status: Status
   ) {
     this.id = id;
     this.model = model;
@@ -95,6 +74,7 @@ export class Car {
     this.updatedAt = updatedAt;
     this.location = location;
     this.pictures = pictures;
+    this.status = status;
   }
 
   getId(): string {
@@ -165,6 +145,10 @@ export class Car {
     return this.pictures;
   }
 
+  getStatus(): Status {
+    return this.status;
+  }
+
   setId(id: string): void {
     this.id = id;
   }
@@ -231,5 +215,9 @@ export class Car {
 
   setPictures(pictures: Array<string>) {
     this.pictures = pictures;
+  }
+
+  setStatus(status: Status) {
+    this.status = status;
   }
 }
