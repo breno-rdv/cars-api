@@ -1,7 +1,7 @@
 import { CarType, FuelType, Transmission, Status } from "../types";
 import { Car } from "../car";
 
-interface AddCarModel {
+export interface AddCarModel {
   model: string;
 
   make: string;
