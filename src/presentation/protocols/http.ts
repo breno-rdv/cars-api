@@ -1,6 +1,6 @@
-export type Request = object | null;
+export type HttpRequest = object | null;
 
-export type Response = {
+export type HttpResponse = {
   statusCode: number;
   body: object | Error;
 };

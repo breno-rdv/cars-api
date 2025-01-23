@@ -1,16 +1,18 @@
 import { AddCar } from "../../domain/use-cases/add-car";
+import HttpServer from "../../infra/http/protocols/http-server";
 import BaseController from "../protocols/base-controller";
-import { Request, Response } from "../protocols/http";
+import { HttpRequest, HttpResponse } from "../protocols/http";
 
 export class CarsController implements BaseController {
   private readonly addCar: AddCar;
+  private readonly httpServer: HttpServer;
 
-  public constructor(addCar: AddCar) {
+  public constructor(httpServer: HttpServer, addCar: AddCar) {
+    this.httpServer = httpServer;
     this.addCar = addCar;
   }
 
-  async handle(request: Request): Promise<Response> {
-    if (!request) throw new Error("Request required");
-    throw new Error("Method not implemented.");
+  async handle(request: HttpRequest): Promise<HttpResponse> {
+    throw new Error(`NO response ${request}`);
   }
 }
