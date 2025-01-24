@@ -1,12 +1,15 @@
-import express, { Request, Response } from "express";
+import express, { Router } from "express";
+import carRoutes from "./routes/car-routes";
 
 const app = express();
 
 const port = 3000;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
-});
+const router = Router();
+
+carRoutes(router);
+
+app.use("api", router);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
