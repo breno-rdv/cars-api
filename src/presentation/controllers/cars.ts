@@ -1,14 +1,11 @@
 import { AddCar } from "../../domain/use-cases/add-car";
-import HttpServer from "../../infra/http/protocols/http-server";
 import BaseController from "../protocols/base-controller";
 import { HttpRequest, HttpResponse } from "../protocols/http";
 
 export class CarsController implements BaseController {
   private readonly addCar: AddCar;
-  private readonly httpServer: HttpServer;
 
-  public constructor(httpServer: HttpServer, addCar: AddCar) {
-    this.httpServer = httpServer;
+  public constructor(addCar: AddCar) {
     this.addCar = addCar;
   }
 
