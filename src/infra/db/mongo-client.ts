@@ -1,18 +1,10 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 
 export default class MongoDbClient {
-  private mongoClient: MongoClient;
+  private mongoClient: MongoClient | null = null;
   static #instance: MongoDbClient;
 
-  private constructor() {
-    this.mongoClient = new MongoClient(process.env.MONGODB_URL ?? "", {
-      serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-      },
-    });
-  }
+  private constructor() {}
 
   public static get instance(): MongoDbClient {
     if (!MongoDbClient.#instance) {
@@ -23,10 +15,24 @@ export default class MongoDbClient {
   }
 
   public get client(): MongoClient {
-    return this.mongoClient;
+    if (!this.mongoClient) {
+      throw new Error("Client has not been connected");
+    }
+    return this.mongoClient!;
   }
+
   public async connect(): Promise<void> {
-    await this.mongoClient?.connect();
+    if (this.mongoClient) {
+      throw new Error("Client already connected");
+    }
+    const client = new MongoClient(process.env.MONGODB_URL ?? "", {
+      serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+      },
+    });
+    this.mongoClient = client;
   }
 
   public async disconnect(): Promise<void> {
