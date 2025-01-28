@@ -1,24 +1,35 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, ServerApiVersion } from "mongodb";
 
-export default class MongoDb {
-  private client: MongoClient | null = null;
-  static #instance: MongoDb;
+export default class MongoDbClient {
+  private mongoClient: MongoClient;
+  static #instance: MongoDbClient;
 
-  private constructor() {}
+  private constructor() {
+    this.mongoClient = new MongoClient(process.env.MONGODB_URL ?? "", {
+      serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+      },
+    });
+  }
 
-  public static get instance(): MongoDb {
-    if (!MongoDb.#instance) {
-      MongoDb.#instance = new MongoDb();
+  public static get instance(): MongoDbClient {
+    if (!MongoDbClient.#instance) {
+      MongoDbClient.#instance = new MongoDbClient();
     }
 
-    return MongoDb.instance;
+    return MongoDbClient.#instance;
   }
 
-  async connect(): Promise<void> {
-    this.client = await MongoClient.connect(process.env.MONGO_URL ?? "");
+  public get client(): MongoClient {
+    return this.mongoClient;
+  }
+  public async connect(): Promise<void> {
+    await this.mongoClient?.connect();
   }
 
-  async disconnect(): Promise<void> {
-    this.client!.close();
+  public async disconnect(): Promise<void> {
+    this.mongoClient?.close();
   }
 }
