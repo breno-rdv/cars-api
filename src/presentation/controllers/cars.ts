@@ -1,4 +1,4 @@
-import { AddCar } from "../../domain/use-cases/add-car";
+import { AddCar, AddCarModel } from "../../domain/use-cases/add-car";
 import BaseController from "../protocols/base-controller";
 import { HttpRequest, HttpResponse } from "../protocols/http";
 
@@ -10,6 +10,10 @@ export class CarsController implements BaseController {
   }
 
   async handle(request: HttpRequest): Promise<HttpResponse> {
-    throw new Error(`NO response ${request}`);
+    const response = await this.addCar.invoke(request as AddCarModel);
+    return {
+      statusCode: 201,
+      body: response,
+    };
   }
 }

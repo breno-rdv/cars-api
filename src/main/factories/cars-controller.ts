@@ -1,5 +1,5 @@
 import { DbAddCar } from "../../data/use-cases/db-add-car";
-import { CarRepository } from "../../infra/repository/car-repository";
+import { CarRepository } from "../../infra/db/mongo/car-repository";
 import { CarsController } from "../../presentation/controllers/cars";
 
 export const makeCarsController = (): CarsController => {

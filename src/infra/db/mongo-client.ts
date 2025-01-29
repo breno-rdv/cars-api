@@ -1,4 +1,4 @@
-import { MongoClient, ServerApiVersion } from "mongodb";
+import { Collection, MongoClient, ServerApiVersion } from "mongodb";
 
 export default class MongoDbClient {
   private mongoClient: MongoClient | null = null;
@@ -12,13 +12,6 @@ export default class MongoDbClient {
     }
 
     return MongoDbClient.#instance;
-  }
-
-  public get client(): MongoClient {
-    if (!this.mongoClient) {
-      throw new Error("Client has not been connected");
-    }
-    return this.mongoClient!;
   }
 
   public async connect(): Promise<void> {
@@ -36,6 +29,10 @@ export default class MongoDbClient {
   }
 
   public async disconnect(): Promise<void> {
-    this.mongoClient?.close();
+    this.mongoClient!.close();
+  }
+
+  public geCollection(name: string): Collection {
+    return this.mongoClient!.db().collection(name);
   }
 }
