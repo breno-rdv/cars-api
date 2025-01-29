@@ -9,8 +9,7 @@ export class DbAddCar implements AddCar {
     this.addCarRepository = addCarRepository;
   }
 
-  invoke(car: AddCarModel): Promise<Car> {
-    console.log(car);
-    throw new Error("Method not implemented.");
+  async invoke(car: AddCarModel): Promise<Car> {
+    return await this.addCarRepository.add(car);
   }
 }

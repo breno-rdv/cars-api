@@ -3,7 +3,7 @@ import BaseController from "../../presentation/protocols/base-controller";
 import { HttpRequest, HttpResponse } from "../../presentation/protocols/http";
 
 export class ExpressAdapter {
-  private readonly controller: BaseController;
+  private controller: BaseController;
 
   public constructor(controller: BaseController) {
     this.controller = controller;

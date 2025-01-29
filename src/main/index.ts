@@ -13,7 +13,7 @@ const router = Router();
 
 carRoutes(router);
 
-app.use("api", router);
+app.use("/api", router);
 
 mongoClient
   .connect()
