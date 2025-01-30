@@ -5,6 +5,8 @@ import MongoDbClient from "../infra/db/mongo-client";
 
 const app = express();
 configDotenv();
+app.use(express.json()); // body-parser is now deprecated as of Express 4.16+
+app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 3000;
 const mongoClient = MongoDbClient.instance;

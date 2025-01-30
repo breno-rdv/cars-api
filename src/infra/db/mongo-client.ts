@@ -33,6 +33,6 @@ export default class MongoDbClient {
   }
 
   public geCollection(name: string): Collection {
-    return this.mongoClient!.db().collection(name);
+    return this.mongoClient!.db("cars-api").collection(name);
   }
 }
