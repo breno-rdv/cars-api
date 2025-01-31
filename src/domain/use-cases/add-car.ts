@@ -1,4 +1,4 @@
-import { CarType, FuelType, Transmission, Status } from "../types";
+import { CarType, FuelType, Transmission, Status, Location } from "../types";
 import { Car } from "../car";
 
 export interface AddCarModel {

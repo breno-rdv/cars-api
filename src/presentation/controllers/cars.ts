@@ -11,7 +11,7 @@ export class CarsController implements BaseController {
 
   async handle(request: HttpRequest): Promise<HttpResponse> {
     console.log(request);
-    const response = await this.addCar.invoke(request as AddCarModel);
+    const response = await this.addCar.invoke(request.body as AddCarModel);
     return {
       statusCode: 201,
       body: response,

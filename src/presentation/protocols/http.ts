@@ -1,4 +1,6 @@
-export type HttpRequest = object | null;
+export type HttpRequest = {
+  body: any;
+};
 
 export type HttpResponse = {
   statusCode: number;
