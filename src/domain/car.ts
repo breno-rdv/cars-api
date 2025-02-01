@@ -1,43 +1,44 @@
 import { CarType, FuelType, Transmission, Location, Status } from "./types";
 
 export class Car {
-  private id: string;
+  private _id: string;
 
-  private model: string;
+  private _model: string;
 
-  private make: string;
+  private _make: string;
 
-  private year: string;
+  private _year: string;
 
-  private type: CarType;
+  private _type: CarType;
 
-  private engineSize: string;
+  private _engineSize: string;
 
-  private fuelType: FuelType;
+  private _fuelType: FuelType;
 
-  private transmission: Transmission;
+  private _transmission: Transmission;
 
-  private horsepower: string;
+  private _horsepower: string;
 
-  private lastServiceDate: string;
+  private _lastServiceDate: string;
 
-  private mileage: string;
+  private _mileage: string;
 
-  private licensePlate: string;
+  private _licensePlate: string;
 
-  private price: number;
+  private _price: number;
 
-  private createdAt: string;
+  private _createdAt: string;
 
-  private updatedAt: string;
+  private _updatedAt: string;
 
-  private location: Location;
+  private _location: Location;
 
-  private pictures: Array<string>;
+  private _pictures: Array<string>;
 
-  private status: Status;
+  private _status: Status;
 
   constructor(
+    id: string,
     model: string,
     make: string,
     year: string,
@@ -53,36 +54,91 @@ export class Car {
     location: Location,
     status: Status
   ) {
-    this.id = "";
-    this.model = model;
-    this.make = make;
-    this.year = year;
-    this.type = carType;
-    this.engineSize = engineSize;
-    this.fuelType = fuelType;
-    this.transmission = transmission;
-    this.horsepower = horsePower;
-    this.lastServiceDate = lastServiceDate;
-    this.mileage = mileage;
-    this.licensePlate = licensePlate;
-    this.price = price;
-    this.createdAt = new Date().toISOString();
-    this.updatedAt = "";
-    this.location = location;
-    this.pictures = [];
-    this.status = status;
+    this._id = id;
+    this._model = model;
+    this._make = make;
+    this._year = year;
+    this._type = carType;
+    this._engineSize = engineSize;
+    this._fuelType = fuelType;
+    this._transmission = transmission;
+    this._horsepower = horsePower;
+    this._lastServiceDate = lastServiceDate;
+    this._mileage = mileage;
+    this._licensePlate = licensePlate;
+    this._price = price;
+    this._createdAt = new Date().toISOString();
+    this._updatedAt = "";
+    this._location = location;
+    this._pictures = [];
+    this._status = status;
   }
 
-  public setId(id: string) {
-    if (this.id) throw new Error("Car Domain already has in Id");
-    this.id = id;
+  public get id() {
+    return this._id;
+  }
+
+  public get model() {
+    return this._model;
+  }
+
+  public get make() {
+    return this._make;
+  }
+
+  public get year() {
+    return this._year;
+  }
+
+  public get type() {
+    return this._type;
+  }
+
+  public get engineSize() {
+    return this._engineSize;
+  }
+
+  public get fuelType() {
+    return this._fuelType;
+  }
+
+  public get transmission() {
+    return this._transmission;
+  }
+
+  public get horsePower() {
+    return this._horsepower;
+  }
+
+  public get lastServiceDate() {
+    return this._lastServiceDate;
+  }
+
+  public get mileage() {
+    return this._mileage;
+  }
+
+  public get licensePlate() {
+    return this._licensePlate;
+  }
+
+  public get price() {
+    return this._price;
+  }
+
+  public get location() {
+    return this._location;
+  }
+
+  public get status() {
+    return this._status;
   }
 
   public setUpdatedAt(date: string) {
-    this.updatedAt = date;
+    this._updatedAt = date;
   }
 
   public setPictures(pictures: Array<string>) {
-    this.pictures = pictures;
+    this._pictures = pictures;
   }
 }
