@@ -1,10 +1,9 @@
-import { DbAddCar } from "../../data/use-cases/db-add-car";
-import { CarRepository } from "../../infra/db/mongo/car-repository";
-import { CarsController } from "../../presentation/controllers/cars";
+import { CarsController } from "../../presentation/controllers/cars-controller";
+import { CarRepository } from "../../infra/db/mongodb/car-repository";
+import { CarUseCases } from "../../domain/usecases/car";
 
 export const makeCarsController = (): CarsController => {
-  const repository = new CarRepository();
-  const addCars = new DbAddCar(repository);
-  const controller = new CarsController(addCars);
-  return controller;
+  const carRepository = new CarRepository();
+  const carUseCases = new CarUseCases(carRepository);
+  return new CarsController(carUseCases);
 };
