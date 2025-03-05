@@ -1,10 +1,22 @@
+import { CarType, FuelType, Status, Transmission, Location } from "./types";
+
 export interface Car {
-  id?: string;
+  id: string;
   model: string;
-  brand: string;
+  maker: string;
   year: number;
+  type: CarType;
+  engineSize: number;
+  fuelType: FuelType;
+  transmission: Transmission;
+  horsepower: number;
+  lastServiceDate: string; // ISO date string format
+  mileage: number;
+  licensePlate: string;
   price: number;
-  color: string;
-  createdAt?: Date;
-  updatedAt?: Date;
+  location: Location;
+  status: Status;
+  pictures: string[];
+  createdAt: string; // ISO date string format
+  updatedAt?: string; // ISO date string format
 }
