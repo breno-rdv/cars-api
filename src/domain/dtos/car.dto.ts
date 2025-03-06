@@ -1,15 +1,5 @@
-export class CreateCarDTO {
-  model!: string;
-  brand!: string;
-  year!: number;
-  price!: number;
-  color!: string;
-}
+import { Car } from "../entities/car";
 
-export class UpdateCarDTO implements Partial<CreateCarDTO> {
-  model?: string;
-  brand?: string;
-  year?: number;
-  price?: number;
-  color?: string;
-}
+export type CreateCarDTO = Omit<Car, "id">;
+
+export type UpdateCarDTO = Partial<CreateCarDTO>;
