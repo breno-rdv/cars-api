@@ -1,4 +1,4 @@
-import { AddCar, AddCarModel } from "../../domain/use-cases/add-car";
+import { AddCar, AddCarModel } from "../../domain/use-cases/create-car";
 import BaseController from "../protocols/base-controller";
 import { HttpRequest, HttpResponse } from "../protocols/http";
 

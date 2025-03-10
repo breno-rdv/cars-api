@@ -11,4 +11,6 @@ export const createCarSchema = z.object({
   color: z.string().min(1, "Color is required"),
 });
 
+// TODO: Implement dto validation
+
 export const updateCarSchema = createCarSchema.partial();
