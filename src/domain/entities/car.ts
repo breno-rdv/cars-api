@@ -5,6 +5,7 @@ export interface Car {
   model: string;
   maker: string;
   year: number;
+  color: string;
   type: CarType;
   engineSize: number;
   fuelType: FuelType;
