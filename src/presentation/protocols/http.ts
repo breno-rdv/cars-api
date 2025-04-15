@@ -1,8 +1,10 @@
-export type HttpRequest = {
-  body: any;
-};
+export interface HttpRequest {
+  body?: any;
+  params?: any;
+  query?: any;
+}
 
-export type HttpResponse = {
+export interface HttpResponse {
   statusCode: number;
-  body: object | Error;
-};
+  body: any;
+}

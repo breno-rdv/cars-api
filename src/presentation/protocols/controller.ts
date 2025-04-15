@@ -1,16 +1,5 @@
-import { Request, Response } from "express";
+import { HttpRequest, HttpResponse } from "./http";
 
-export interface BaseController {
+export interface Controller {
   handle(request: HttpRequest): Promise<HttpResponse>;
-}
-
-export interface HttpRequest {
-  body?: any;
-  params?: any;
-  query?: any;
-}
-
-export interface HttpResponse {
-  statusCode: number;
-  body: any;
 }
