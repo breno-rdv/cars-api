@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import BaseController from "../../presentation/protocols/base-controller";
+import { Controller } from "../../presentation/protocols/controller";
 import { HttpRequest, HttpResponse } from "../../presentation/protocols/http";
 
-export const adaptRoute = (controller: BaseController) => {
+export const adaptRoute = (controller: Controller) => {
   return async (req: Request, res: Response) => {
     const request: HttpRequest = {
       body: req.body,
