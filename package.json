@@ -4,7 +4,7 @@
   "description": "API to manage cars",
   "main": "index.ts",
   "scripts": {
-    "start:dev": "tsc --noEmit && node --no-warnings=ExperimentalWarning --loader ts-node/esm src/main/index.ts",
+    "start:dev": "tsc --noEmit && ts-node src/main/app.ts",
     "lint": "npx eslint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +17,6 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongodb": "^6.12.0",
     "pg": "^8.14.0",
     "uuid": "^11.0.5",
     "zod": "^3.24.2"
