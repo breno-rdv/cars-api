@@ -6,7 +6,7 @@ import { CreateCarDTO, UpdateCarDTO } from "../../domain/dtos/car.dto";
 export class CarRepositoryImpl implements CarRepository {
   async create(car: CreateCarDTO): Promise<Car> {
     const result = await PostgresqlClient.query<Car>(
-      "INSERT INTO cars (model, maker, year, color, type, engineSize, fuelType, transmission, horsepower, lastServiceDate, mileage, licensePlate, price, location, status, pictures, createdAt, updatedAt) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      "INSERT INTO cars (model, maker, year, color, type, engine_size, fuel_type, transmission, horsepower, last_service_date, mileage, license_plate, price, location, status, pictures, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18) RETURNING *",
       [
         car.model,
         car.maker,

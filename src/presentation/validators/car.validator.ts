@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const createCarSchema = z.object({
   model: z.string().min(1, "Model is required"),
-  brand: z.string().min(1, "Brand is required"),
+  maker: z.string().min(1, "Brand is required"),
   year: z
     .number()
     .min(new Date().getFullYear() - 20)
