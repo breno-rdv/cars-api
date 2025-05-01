@@ -27,3 +27,41 @@ export const createCarSchema = z.object({
 });
 
 export const updateCarSchema = createCarSchema.partial();
+
+export const findAllCarsQuerySchema = z
+  .object({
+    page: z
+      .string()
+      .optional()
+      .transform((val) => (val ? parseInt(val) : 1)),
+    limit: z
+      .string()
+      .optional()
+      .transform((val) => (val ? parseInt(val) : 10)),
+    sort: z.string().optional(),
+    brand: z.string().optional(),
+    model: z.string().optional(),
+    year: z
+      .string()
+      .optional()
+      .transform((val) => (val ? parseInt(val) : undefined)),
+    minPrice: z
+      .string()
+      .optional()
+      .transform((val) => (val ? parseFloat(val) : undefined)),
+    maxPrice: z
+      .string()
+      .optional()
+      .transform((val) => (val ? parseFloat(val) : undefined)),
+  })
+  .refine(
+    (data) => {
+      if (data.minPrice && data.maxPrice) {
+        return data.minPrice <= data.maxPrice;
+      }
+      return true;
+    },
+    {
+      message: "minPrice must be less than or equal to maxPrice",
+    }
+  );
