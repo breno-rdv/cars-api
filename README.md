@@ -1,6 +1,20 @@
-# cars-api
+# Inventory service
 
-API do manage cars
+> This project follows Clan Architecture
+
+It is responsible for:
+
+- Manages the complete vehicle lifecycle (creation, updates, deleting)
+- Handles vehicle metadata (specifications, features, pricing)
+- Provides search indexing capabilities
+- Implements business rules for inventory management
+- Manages vehicle status (available, reserved, sold)
+
+# Running project locallly
+
+```bash
+npm run start:dev
+```
 
 # Clean Architecture Implementation
 
@@ -42,12 +56,6 @@ Handles HTTP requests and responses, contains controllers and route definitions.
 6. Domain entities represent business data
 7. Repository defines persistence contract
 8. Database/API/File system implements repository
-
-## Testing Strategy
-
-1. **Unit Testing**: Test individual components in isolation
-2. **Integration Testing**: Test components working together
-3. **E2E Testing**: Test entire application flow
 
 ## Project Structure
 
