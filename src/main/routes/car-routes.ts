@@ -9,6 +9,7 @@ export default function carRoutes(router: Router) {
     "/cars/:id",
     adaptRoute(CarsController.makeDeleteCarController())
   );
+  router.put("/cars/:id", adaptRoute(CarsController.makeUpdateCarController()));
 
   return router;
 }
