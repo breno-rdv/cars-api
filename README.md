@@ -16,6 +16,14 @@ It is responsible for:
 npm run start:dev
 ```
 
+# Migrations
+
+It is managed by `graphile-migrate`.
+
+To run a migration, execute:
+
+// TODO
+
 # Clean Architecture Implementation
 
 This project follows Clean Architecture principles to maintain a scalable, testable, and maintainable codebase.
