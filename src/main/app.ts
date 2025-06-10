@@ -17,8 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 // Error handling
 app.use(errorHandler);
 
+// TODO: test status code
 const router = Router();
 carRoutes(router);
+
 app.use("/api", router);
 
 app.listen(port, () => {
